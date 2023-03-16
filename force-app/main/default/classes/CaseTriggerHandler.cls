@@ -12,7 +12,6 @@ public with sharing class CaseTriggerHandler {
         RefreshCaseList__e event = new RefreshCaseList__e();
 
         if (dinCasesList.size() > 0) {
-            CaseTriggerHelper.runDinViewUpdate();
             Database.SaveResult result = EventBus.publish(event);
         }
     }

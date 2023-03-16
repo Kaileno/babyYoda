@@ -77,10 +77,6 @@ public with sharing class CaseTriggerHelper {
         return validCases;
     }
 
-    public static void runDinViewUpdate() {
-        system.debug('toca actualizar viteh');
-    }
-
     //before insert helper functions
     private static boolean isCaseFromDin(Case c) {
         return (String.isNotEmpty(c.SuppliedName) && c.Origin == 'Email' && c.subject.contains(VALID_SUBJECT));
