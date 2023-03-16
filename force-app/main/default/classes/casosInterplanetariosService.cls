@@ -17,8 +17,23 @@ public with sharing class casosInterplanetariosService {
     }
 
     @AuraEnabled
-    public static Boolean isGroguOnPlanet(String accessCode) {
-        return FindGroguService.getFindGrogu(accessCode);
+    public static Boolean isGroguOnPlanet(Id caseId, String accessCode) {
+        Boolean isGroguThere = FindGroguService.getFindGrogu(accessCode);
+        RefreshCaseList__e event = new RefreshCaseList__e();
+
+        Case c = [SELECT Id, Status, Sucessful_Scan__c FROM Case WHERE Id = :caseId];
+
+        c.Sucessful_Scan__c = false;
+        c.Status = 'Closed';
+
+        if (isGroguThere) {
+            c.Sucessful_Scan__c = true;
+        }
+
+        update c;
+        Database.SaveResult result = EventBus.publish(event);
+
+        return isGroguThere;
     }
 
     private static List<caseWrapper> tranformToCaseWrapper(List<Case> caseList) {

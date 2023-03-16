@@ -7,6 +7,10 @@ public with sharing class CaseTriggerHandler {
         }
     }
 
+    public static void beforeUpdate(List<Case> oldCases, List<Case> newCases, Map<ID, Case> oldCaseMap, Map<ID, Case> newCaseMap) {
+
+    }
+
     public static void afterInsert(List<Case> newCases, Map<ID, Case> newCaseMap) {
         List<Case> dinCasesList = CaseTriggerHelper.getAcceptedCasesFromDin(newCases);
         RefreshCaseList__e event = new RefreshCaseList__e();
