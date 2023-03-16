@@ -6,7 +6,7 @@
     </types>
 
     <types>
-        <members>*</members>
+        <members>CaseTrigger</members>
         <name>ApexTrigger</name>
     </types>
 
@@ -16,7 +16,9 @@
     </types>
 
     <types>
+        <members>Case.IsDinInvalidMailFormat__c</members>
         <members>Case.Planet__c</members>
+        <members>Case.ReasonToRejectDinEmail__c</members>
         <members>Case.Sucessful_Scan__c</members>
         <name>CustomField</name>
     </types>
@@ -33,6 +35,7 @@
     </types>
     
     <types>
+        <members>Case-Case Layout</members>
         <members>MapPlanet__mdt-MapPlanet Layout</members>
         <members>Planet__c-Planet Layout</members>
         <name>Layout</name>
